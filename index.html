@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rust Learning Sessions - Slides</title>
+    <title>Rust Learning Sessions</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         * {
@@ -16,177 +16,139 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #1a1a2e;
             min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .content {
-            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
         }
 
         .markdown-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             font-size: 1.1rem;
             line-height: 1.8;
+            max-width: 800px;
+            width: 100%;
         }
 
         .markdown-content h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 2rem;
+            color: #16213e;
+            border-bottom: 2px solid #0f3460;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            font-weight: 400;
         }
 
         .markdown-content h2 {
-            color: #34495e;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+            color: #16213e;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            font-weight: 400;
         }
 
         .markdown-content h3 {
-            color: #7f8c8d;
-            margin-top: 25px;
-            margin-bottom: 10px;
+            color: #16213e;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
             font-size: 1.3rem;
+            font-weight: 500;
         }
 
         .markdown-content p {
-            margin-bottom: 15px;
+            margin-bottom: 1.2rem;
+            color: #333;
         }
 
         .markdown-content ul, .markdown-content ol {
-            margin-bottom: 15px;
-            padding-left: 20px;
+            margin-bottom: 1.2rem;
+            padding-left: 1.5rem;
         }
 
         .markdown-content li {
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
+            color: #333;
         }
 
         .markdown-content code {
             background: #f8f9fa;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            color: #e74c3c;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+            color: #16213e;
+            font-size: 0.9rem;
         }
 
         .markdown-content pre {
-            background: #2c3e50;
-            color: #ecf0f1;
-            padding: 20px;
-            border-radius: 8px;
+            background: #16213e;
+            color: #e8e8e8;
+            padding: 1.5rem;
+            border-radius: 6px;
             overflow-x: auto;
-            margin: 20px 0;
+            margin: 1.5rem 0;
+            border: 1px solid #0f3460;
         }
 
         .markdown-content pre code {
             background: none;
             color: inherit;
             padding: 0;
+            font-size: 0.95rem;
         }
 
         .markdown-content blockquote {
-            border-left: 4px solid #3498db;
-            padding-left: 20px;
-            margin: 20px 0;
+            border-left: 4px solid #0f3460;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
             font-style: italic;
-            color: #7f8c8d;
+            color: #666;
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-radius: 0 4px 4px 0;
         }
 
         .loading {
             text-align: center;
-            padding: 40px;
-            color: #7f8c8d;
+            padding: 3rem;
+            color: #666;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .error {
-            background: #e74c3c;
+            background: #dc3545;
             color: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .footer {
-            background: #34495e;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-        }
-
-        .footer a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
         }
 
         @media (max-width: 768px) {
             body {
-                padding: 10px;
+                padding: 1rem;
             }
             
-            .header h1 {
-                font-size: 2rem;
+            .markdown-content {
+                padding: 2rem;
             }
-            
-            .content {
-                padding: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .markdown-content {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🦀 Rust Learning Sessions</h1>
-            <p>Interactive Tutorial Slides and Exercises</p>
-        </div>
-        
-        <div class="content">
-            <div id="markdown-content" class="markdown-content">
-                <div class="loading">Loading slides...</div>
-            </div>
-        </div>
-        
-        <div class="footer">
-            <p>Built with ❤️ for learning Rust | 
-               <a href="https://github.com/achuvyas-kv/rust-learning-sessions" target="_blank">View on GitHub</a>
-            </p>
-        </div>
+    <div id="markdown-content" class="markdown-content">
+        <div class="loading">Loading content...</div>
     </div>
 
     <script>
@@ -217,7 +179,7 @@
                 console.error('Error loading markdown:', error);
                 document.getElementById('markdown-content').innerHTML = `
                     <div class="error">
-                        <h3>Error Loading Slides</h3>
+                        <h3>Error Loading Content</h3>
                         <p>Could not load slides.md file. Please make sure the file exists and try again.</p>
                         <p><strong>Error:</strong> ${error.message}</p>
                     </div>
@@ -227,20 +189,6 @@
 
         // Load markdown when page loads
         document.addEventListener('DOMContentLoaded', loadMarkdown);
-
-        // Add syntax highlighting for code blocks
-        function highlightCodeBlocks() {
-            const codeBlocks = document.querySelectorAll('pre code');
-            codeBlocks.forEach(block => {
-                // Add language class if specified
-                if (block.className) {
-                    block.parentElement.className = `language-${block.className}`;
-                }
-            });
-        }
-
-        // Call highlighting after content loads
-        setTimeout(highlightCodeBlocks, 100);
     </script>
 </body>
 </html> 
