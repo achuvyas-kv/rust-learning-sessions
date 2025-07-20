@@ -20,7 +20,7 @@
             min-height: 100vh;
         }
 
-        .markdown-content {
+        #markdown-content {
             background: white;
             padding: 3rem;
             font-size: 1.1rem;
@@ -28,7 +28,7 @@
             min-height: 100vh;
         }
 
-        .markdown-content h1 {
+        #markdown-content h1 {
             color: #16213e;
             border-bottom: 2px solid #0f3460;
             padding-bottom: 0.5rem;
@@ -37,7 +37,7 @@
             font-weight: 400;
         }
 
-        .markdown-content h2 {
+        #markdown-content h2 {
             color: #16213e;
             margin-top: 2.5rem;
             margin-bottom: 1rem;
@@ -45,7 +45,7 @@
             font-weight: 400;
         }
 
-        .markdown-content h3 {
+        #markdown-content h3 {
             color: #16213e;
             margin-top: 2rem;
             margin-bottom: 0.8rem;
@@ -53,22 +53,22 @@
             font-weight: 500;
         }
 
-        .markdown-content p {
+        #markdown-content p {
             margin-bottom: 1.2rem;
             color: #333;
         }
 
-        .markdown-content ul, .markdown-content ol {
+        #markdown-content ul, #markdown-content ol {
             margin-bottom: 1.2rem;
             padding-left: 1.5rem;
         }
 
-        .markdown-content li {
+        #markdown-content li {
             margin-bottom: 0.5rem;
             color: #333;
         }
 
-        .markdown-content code {
+        #markdown-content code {
             background: #f8f9fa;
             padding: 0.2rem 0.4rem;
             border-radius: 3px;
@@ -77,7 +77,7 @@
             font-size: 0.9rem;
         }
 
-        .markdown-content pre {
+        #markdown-content pre {
             background: #16213e;
             color: #e8e8e8;
             padding: 1.5rem;
@@ -87,14 +87,14 @@
             border: 1px solid #0f3460;
         }
 
-        .markdown-content pre code {
+        #markdown-content pre code {
             background: none;
             color: inherit;
             padding: 0;
             font-size: 0.95rem;
         }
 
-        .markdown-content blockquote {
+        #markdown-content blockquote {
             border-left: 4px solid #0f3460;
             padding-left: 1.5rem;
             margin: 1.5rem 0;
@@ -105,10 +105,31 @@
             border-radius: 0 4px 4px 0;
         }
 
-        .markdown-content hr {
+        #markdown-content hr {
             border: none;
             border-top: 2px solid #0f3460;
             margin: 2rem 0;
+        }
+
+        #markdown-content strong {
+            font-weight: 600;
+            color: #16213e;
+        }
+
+        #markdown-content em {
+            font-style: italic;
+            color: #666;
+        }
+
+        #markdown-content a {
+            color: #0f3460;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        #markdown-content a:hover {
+            border-bottom-color: #0f3460;
         }
 
         .loading {
@@ -131,20 +152,20 @@
         }
 
         @media (max-width: 768px) {
-            .markdown-content {
+            #markdown-content {
                 padding: 2rem;
             }
         }
 
         @media (max-width: 480px) {
-            .markdown-content {
+            #markdown-content {
                 padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div id="markdown-content" class="markdown-content">
+    <div id="markdown-content">
         <div class="loading">Loading content...</div>
     </div>
 
