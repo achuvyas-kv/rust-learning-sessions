@@ -18,21 +18,14 @@
             color: #333;
             background: #1a1a2e;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
         }
 
         .markdown-content {
             background: white;
             padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             font-size: 1.1rem;
             line-height: 1.8;
-            max-width: 800px;
-            width: 100%;
+            min-height: 100vh;
         }
 
         .markdown-content h1 {
@@ -112,13 +105,21 @@
             border-radius: 0 4px 4px 0;
         }
 
+        .markdown-content hr {
+            border: none;
+            border-top: 2px solid #0f3460;
+            margin: 2rem 0;
+        }
+
         .loading {
             text-align: center;
             padding: 3rem;
             color: #666;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .error {
@@ -130,10 +131,6 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-            
             .markdown-content {
                 padding: 2rem;
             }
