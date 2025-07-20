@@ -22,93 +22,131 @@
 
         #markdown-content {
             background: white;
-            padding: 3rem;
-            font-size: 1.1rem;
+            padding: 4rem 6rem;
+            font-size: 1.3rem;
             line-height: 1.8;
             min-height: 100vh;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         #markdown-content h1 {
             color: #16213e;
-            border-bottom: 2px solid #0f3460;
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-            font-size: 2.2rem;
-            font-weight: 400;
+            border-bottom: 3px solid #0f3460;
+            padding-bottom: 1rem;
+            margin-bottom: 3rem;
+            font-size: 3.5rem;
+            font-weight: 300;
+            text-align: center;
         }
 
         #markdown-content h2 {
             color: #16213e;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            font-size: 1.6rem;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
             font-weight: 400;
+            text-align: center;
         }
 
         #markdown-content h3 {
             color: #16213e;
-            margin-top: 2rem;
-            margin-bottom: 0.8rem;
-            font-size: 1.3rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
             font-weight: 500;
+            text-align: center;
         }
 
         #markdown-content p {
-            margin-bottom: 1.2rem;
+            margin-bottom: 2rem;
             color: #333;
+            text-align: center;
+            font-size: 1.4rem;
         }
 
         #markdown-content ul, #markdown-content ol {
-            margin-bottom: 1.2rem;
-            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+            padding-left: 0;
+            list-style: none;
+            text-align: center;
         }
 
         #markdown-content li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             color: #333;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        #markdown-content ul li::before {
+            content: "• ";
+            color: #0f3460;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        #markdown-content ol {
+            counter-reset: item;
+        }
+
+        #markdown-content ol li {
+            counter-increment: item;
+        }
+
+        #markdown-content ol li::before {
+            content: counter(item) ". ";
+            color: #0f3460;
+            font-weight: bold;
         }
 
         #markdown-content code {
             background: #f8f9fa;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
             font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
             color: #16213e;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
         }
 
         #markdown-content pre {
             background: #16213e;
             color: #e8e8e8;
-            padding: 1.5rem;
-            border-radius: 6px;
+            padding: 2rem;
+            border-radius: 8px;
             overflow-x: auto;
-            margin: 1.5rem 0;
-            border: 1px solid #0f3460;
+            margin: 2rem auto;
+            border: 2px solid #0f3460;
+            text-align: left;
+            max-width: 90%;
         }
 
         #markdown-content pre code {
             background: none;
             color: inherit;
             padding: 0;
-            font-size: 0.95rem;
+            font-size: 1.1rem;
         }
 
         #markdown-content blockquote {
-            border-left: 4px solid #0f3460;
-            padding-left: 1.5rem;
-            margin: 1.5rem 0;
+            border-left: 5px solid #0f3460;
+            padding-left: 2rem;
+            margin: 2rem auto;
             font-style: italic;
             color: #666;
             background: #f8f9fa;
-            padding: 1rem 1.5rem;
-            border-radius: 0 4px 4px 0;
+            padding: 1.5rem 2rem;
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+            max-width: 90%;
         }
 
         #markdown-content hr {
             border: none;
-            border-top: 2px solid #0f3460;
-            margin: 2rem 0;
+            border-top: 3px solid #0f3460;
+            margin: 3rem auto;
+            width: 50%;
         }
 
         #markdown-content strong {
@@ -124,8 +162,9 @@
         #markdown-content a {
             color: #0f3460;
             text-decoration: none;
-            border-bottom: 1px solid transparent;
+            border-bottom: 2px solid transparent;
             transition: border-color 0.2s ease;
+            font-weight: 500;
         }
 
         #markdown-content a:hover {
@@ -134,32 +173,69 @@
 
         .loading {
             text-align: center;
-            padding: 3rem;
+            padding: 4rem;
             color: #666;
             background: white;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
         }
 
         .error {
             background: #dc3545;
             color: white;
-            padding: 1.5rem;
-            border-radius: 6px;
-            margin: 1.5rem 0;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem auto;
+            text-align: center;
+            font-size: 1.3rem;
         }
 
         @media (max-width: 768px) {
             #markdown-content {
-                padding: 2rem;
+                padding: 3rem 2rem;
+                font-size: 1.2rem;
+            }
+            
+            #markdown-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            #markdown-content h2 {
+                font-size: 2rem;
+            }
+            
+            #markdown-content h3 {
+                font-size: 1.6rem;
+            }
+            
+            #markdown-content p, #markdown-content li {
+                font-size: 1.2rem;
             }
         }
 
         @media (max-width: 480px) {
             #markdown-content {
-                padding: 1.5rem;
+                padding: 2rem 1.5rem;
+                font-size: 1.1rem;
+            }
+            
+            #markdown-content h1 {
+                font-size: 2rem;
+            }
+            
+            #markdown-content h2 {
+                font-size: 1.6rem;
+            }
+            
+            #markdown-content h3 {
+                font-size: 1.4rem;
+            }
+            
+            #markdown-content p, #markdown-content li {
+                font-size: 1.1rem;
             }
         }
     </style>
