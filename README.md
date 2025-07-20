@@ -6,7 +6,7 @@ A tutorial repository with hands-on exercises to learn Rust programming.
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/achuvyas-kv/rust-learning-sessions.git
    cd rust-learning-sessions
    ```
 
