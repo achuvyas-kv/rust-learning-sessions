@@ -18,20 +18,36 @@
             color: #333;
             background: #1a1a2e;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        #markdown-content {
+        .slide-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .slide {
             background: white;
             padding: 4rem 6rem;
             font-size: 1.3rem;
             line-height: 1.8;
-            min-height: 100vh;
             max-width: 1000px;
-            margin: 0 auto;
+            width: 100%;
             text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: none;
         }
 
-        #markdown-content h1 {
+        .slide.active {
+            display: block;
+        }
+
+        .slide h1 {
             color: #16213e;
             border-bottom: 3px solid #0f3460;
             padding-bottom: 1rem;
@@ -41,7 +57,7 @@
             text-align: center;
         }
 
-        #markdown-content h2 {
+        .slide h2 {
             color: #16213e;
             margin-top: 4rem;
             margin-bottom: 2rem;
@@ -50,7 +66,7 @@
             text-align: center;
         }
 
-        #markdown-content h3 {
+        .slide h3 {
             color: #16213e;
             margin-top: 3rem;
             margin-bottom: 1.5rem;
@@ -59,49 +75,49 @@
             text-align: center;
         }
 
-        #markdown-content p {
+        .slide p {
             margin-bottom: 2rem;
             color: #333;
             text-align: center;
             font-size: 1.4rem;
         }
 
-        #markdown-content ul, #markdown-content ol {
+        .slide ul, .slide ol {
             margin-bottom: 2rem;
             padding-left: 0;
             list-style: none;
             text-align: center;
         }
 
-        #markdown-content li {
+        .slide li {
             margin-bottom: 1rem;
             color: #333;
             font-size: 1.4rem;
             text-align: center;
         }
 
-        #markdown-content ul li::before {
+        .slide ul li::before {
             content: "• ";
             color: #0f3460;
             font-weight: bold;
             font-size: 1.5rem;
         }
 
-        #markdown-content ol {
+        .slide ol {
             counter-reset: item;
         }
 
-        #markdown-content ol li {
+        .slide ol li {
             counter-increment: item;
         }
 
-        #markdown-content ol li::before {
+        .slide ol li::before {
             content: counter(item) ". ";
             color: #0f3460;
             font-weight: bold;
         }
 
-        #markdown-content code {
+        .slide code {
             background: #f8f9fa;
             padding: 0.3rem 0.6rem;
             border-radius: 4px;
@@ -110,7 +126,7 @@
             font-size: 1.1rem;
         }
 
-        #markdown-content pre {
+        .slide pre {
             background: #16213e;
             color: #e8e8e8;
             padding: 2rem;
@@ -122,14 +138,14 @@
             max-width: 90%;
         }
 
-        #markdown-content pre code {
+        .slide pre code {
             background: none;
             color: inherit;
             padding: 0;
             font-size: 1.1rem;
         }
 
-        #markdown-content blockquote {
+        .slide blockquote {
             border-left: 5px solid #0f3460;
             padding-left: 2rem;
             margin: 2rem auto;
@@ -142,24 +158,24 @@
             max-width: 90%;
         }
 
-        #markdown-content hr {
+        .slide hr {
             border: none;
             border-top: 3px solid #0f3460;
             margin: 3rem auto;
             width: 50%;
         }
 
-        #markdown-content strong {
+        .slide strong {
             font-weight: 600;
             color: #16213e;
         }
 
-        #markdown-content em {
+        .slide em {
             font-style: italic;
             color: #666;
         }
 
-        #markdown-content a {
+        .slide a {
             color: #0f3460;
             text-decoration: none;
             border-bottom: 2px solid transparent;
@@ -167,8 +183,47 @@
             font-weight: 500;
         }
 
-        #markdown-content a:hover {
+        .slide a:hover {
             border-bottom-color: #0f3460;
+        }
+
+        .navigation {
+            background: #16213e;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid #0f3460;
+        }
+
+        .nav-button {
+            background: #0f3460;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 120px;
+        }
+
+        .nav-button:hover {
+            background: #1a4a7a;
+            transform: translateY(-2px);
+        }
+
+        .nav-button:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
         }
 
         .loading {
@@ -176,7 +231,8 @@
             padding: 4rem;
             color: #666;
             background: white;
-            min-height: 100vh;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -194,64 +250,160 @@
         }
 
         @media (max-width: 768px) {
-            #markdown-content {
+            .slide-container {
+                padding: 1rem;
+            }
+            
+            .slide {
                 padding: 3rem 2rem;
                 font-size: 1.2rem;
             }
             
-            #markdown-content h1 {
+            .slide h1 {
                 font-size: 2.5rem;
             }
             
-            #markdown-content h2 {
+            .slide h2 {
                 font-size: 2rem;
             }
             
-            #markdown-content h3 {
+            .slide h3 {
                 font-size: 1.6rem;
             }
             
-            #markdown-content p, #markdown-content li {
+            .slide p, .slide li {
                 font-size: 1.2rem;
+            }
+            
+            .navigation {
+                padding: 1rem;
+            }
+            
+            .nav-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                min-width: 100px;
             }
         }
 
         @media (max-width: 480px) {
-            #markdown-content {
+            .slide {
                 padding: 2rem 1.5rem;
                 font-size: 1.1rem;
             }
             
-            #markdown-content h1 {
+            .slide h1 {
                 font-size: 2rem;
             }
             
-            #markdown-content h2 {
+            .slide h2 {
                 font-size: 1.6rem;
             }
             
-            #markdown-content h3 {
+            .slide h3 {
                 font-size: 1.4rem;
             }
             
-            #markdown-content p, #markdown-content li {
+            .slide p, .slide li {
                 font-size: 1.1rem;
+            }
+            
+            .nav-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+                min-width: 80px;
             }
         }
     </style>
 </head>
 <body>
-    <div id="markdown-content">
-        <div class="loading">Loading content...</div>
+    <div class="slide-container">
+        <div id="slides-container">
+            <div class="loading">Loading content...</div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <button id="prev-btn" class="nav-button" onclick="previousSlide()">Previous</button>
+        <div class="slide-counter">
+            <span id="current-slide">1</span> / <span id="total-slides">1</span>
+        </div>
+        <button id="next-btn" class="nav-button" onclick="nextSlide()">Next</button>
     </div>
 
     <script>
+        let slides = [];
+        let currentSlideIndex = 0;
+
         // Configure marked options
         marked.setOptions({
             breaks: true,
             gfm: true,
             headerIds: true,
             mangle: false
+        });
+
+        // Function to split markdown into slides
+        function splitIntoSlides(markdownText) {
+            // Split by horizontal rules (---)
+            const slideContent = markdownText.split(/\n\s*---\s*\n/);
+            return slideContent.filter(slide => slide.trim() !== '');
+        }
+
+        // Function to create slide HTML
+        function createSlideHTML(content, index) {
+            const htmlContent = marked.parse(content);
+            return `
+                <div class="slide ${index === 0 ? 'active' : ''}" id="slide-${index}">
+                    ${htmlContent}
+                </div>
+            `;
+        }
+
+        // Function to show slide
+        function showSlide(index) {
+            // Hide all slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Show current slide
+            const currentSlide = document.getElementById(`slide-${index}`);
+            if (currentSlide) {
+                currentSlide.classList.add('active');
+            }
+            
+            // Update counter
+            document.getElementById('current-slide').textContent = index + 1;
+            document.getElementById('total-slides').textContent = slides.length;
+            
+            // Update button states
+            document.getElementById('prev-btn').disabled = index === 0;
+            document.getElementById('next-btn').disabled = index === slides.length - 1;
+        }
+
+        // Navigation functions
+        function previousSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < slides.length - 1) {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                previousSlide();
+            } else if (event.key === 'ArrowRight') {
+                nextSlide();
+            }
         });
 
         // Function to load and render markdown
@@ -263,15 +415,23 @@
                 }
                 const markdownText = await response.text();
                 
-                // Render markdown to HTML
-                const htmlContent = marked.parse(markdownText);
+                // Split into slides
+                slides = splitIntoSlides(markdownText);
                 
-                // Update the content
-                document.getElementById('markdown-content').innerHTML = htmlContent;
+                // Create slide HTML
+                const slidesHTML = slides.map((slide, index) => 
+                    createSlideHTML(slide, index)
+                ).join('');
+                
+                // Update the container
+                document.getElementById('slides-container').innerHTML = slidesHTML;
+                
+                // Show first slide
+                showSlide(0);
                 
             } catch (error) {
                 console.error('Error loading markdown:', error);
-                document.getElementById('markdown-content').innerHTML = `
+                document.getElementById('slides-container').innerHTML = `
                     <div class="error">
                         <h3>Error Loading Content</h3>
                         <p>Could not load slides.md file. Please make sure the file exists and try again.</p>

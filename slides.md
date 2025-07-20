@@ -1,5 +1,7 @@
 # Rust Learning Sessions
 
+---
+
 ## Introduction
 
 Welcome to Rust Learning Sessions! This is a hands-on tutorial where we'll explore Rust programming concepts through practical exercises.
