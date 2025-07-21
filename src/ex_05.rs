@@ -10,9 +10,7 @@
 
 // TODO: Implement this function
 pub fn add_numbers(a: i32, b: i32) -> i32 {
-    // Your implementation goes here
-    // Replace this line with your solution
-    return a + b;
+    todo!("Implement the function to add two numbers")
 }
 
 

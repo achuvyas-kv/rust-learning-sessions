@@ -8,13 +8,13 @@ Welcome to Rust Learning Sessions! This is a hands-on tutorial where we'll explo
 
 ### About This Session
 
-I'm still learning Rust myself, so expect some mistakes or me fumbling to explain some concepts. This is a collaborative learning experience!
+I'm still learning Rust myself, so expect some mistakes
 
 ---
 
 ## What We'll Cover
 
-Anything that helps you get started writing Rust.
+Anything that helps to get started.
 
 ---
 
@@ -55,6 +55,24 @@ let mut bar = "Hello";
 const PI: f64 = 3.14159;
 let radius = 5.3;
 let area = PI * radius * radius;
+```
+
+---
+
+## Printing a Variable in Rust
+
+You can print the value of a variable using the `println!` macro:
+
+### TypeScript
+```typescript
+const favoriteColor = "blue";
+console.log(`My favorite color is ${favoriteColor}.`); // Output: My favorite color is blue.
+```
+
+### Rust
+```rust
+let favorite_color = "blue";
+println!("My favorite color is {}.", favorite_color); // Output: My favorite color is blue.
 ```
 
 ---

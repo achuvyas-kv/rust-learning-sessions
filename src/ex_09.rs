@@ -5,24 +5,24 @@
 // - Implement a function get_color_name(color: Color) -> &'static str that returns the color name
 // - Implement a function is_warm_color(color: Color) -> bool that returns true for warm colors
 //   (Red, Orange, Yellow are warm colors; Green, Blue, Purple are cool colors)
-// - Implement a function get_complementary_color(color: Color) -> Color that returns the complementary color
-//   (Red ↔ Green, Blue ↔ Orange, Yellow ↔ Purple)
+#![allow(warnings)]
 
 #[derive(Debug, PartialEq)]
 pub enum Color {
-    // TODO: Define the color variants
+    Red,
+    Green,
+    Blue,
+    Yellow,
+    Purple,
+    Orange,
 }
 
 pub fn get_color_name(color: Color) -> &'static str {
-    todo!("Return the name of the color as a string")
+     todo!("Return the name of the color as a string")
 }
 
 pub fn is_warm_color(color: Color) -> bool {
     todo!("Return true if the color is warm (Red, Orange, Yellow)")
-}
-
-pub fn get_complementary_color(color: Color) -> Color {
-    todo!("Return the complementary color")
 }
 
 #[cfg(test)]
@@ -44,15 +44,5 @@ mod tests {
         assert_eq!(is_warm_color(Color::Green), false);
         assert_eq!(is_warm_color(Color::Blue), false);
         assert_eq!(is_warm_color(Color::Purple), false);
-    }
-
-    #[test]
-    fn test_get_complementary_color() {
-        assert_eq!(get_complementary_color(Color::Red), Color::Green);
-        assert_eq!(get_complementary_color(Color::Green), Color::Red);
-        assert_eq!(get_complementary_color(Color::Blue), Color::Orange);
-        assert_eq!(get_complementary_color(Color::Orange), Color::Blue);
-        assert_eq!(get_complementary_color(Color::Yellow), Color::Purple);
-        assert_eq!(get_complementary_color(Color::Purple), Color::Yellow);
     }
 } 
