@@ -19,9 +19,6 @@ function main() {
 	obj = null;  // Explicitly mark for GC (optional)
 	numbers = null;  // Old array becomes eligible for GC
 
-
-
-
 	// Garbage collector will automatically free memory when no references remain
 	// No manual cleanup needed!
 }

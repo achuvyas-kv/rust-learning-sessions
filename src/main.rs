@@ -16,7 +16,12 @@ pub mod ex_11;
 pub mod memory;
 
 fn main() {
-    todo!(
-        "define a variable called name and assign it the value of your name and print hi name , welcome to the rust learning sessions"
-    );
+    // todo!(
+    //     "define a variable called name and assign it the value of your name and print hi name , welcome to the rust learning sessions"
+    // );
+    //
+}
+
+fn calculate_length(s: String) -> usize {
+    s.len()
 }
