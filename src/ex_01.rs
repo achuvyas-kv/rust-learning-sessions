@@ -1,22 +1,20 @@
-// Exercise: Traffic Signal Messages
+// Exercise: Mutable Variables
 //
 // Instructions:
-// 1. Create variables for the traffic light colors: red, yellow, green.
-// 2. Create variables for the messages: 'Stop.', 'You can go now.', 'Slow down.'
-// 3. Assign mutable variables `current_signal` and `current_message` to the color and message for red.
-// 4. Print the current signal and message.
-// 5. Change both to green and its message, print.
-// 6. Change both to yellow and its message, print.
+// 1. Create a mutable variable `counter` starting at 0
+// 2. Increment it by 1
+// 3. Increment it by 2
+// 4. The final value should be 3
 //
 // Expected output:
-// Signal: Red - Stop.
-// Signal: Green - You can go now.
-// Signal: Yellow - Slow down.
+// Counter: 0
+// Counter: 1
+// Counter: 3
 //
 // Fill in the code below:
 
 fn main() {
-
+    todo!("Fix the bug in the code below");
 }
 
 #[cfg(test)]
@@ -24,7 +22,9 @@ mod tests {
     use super::*;
 
     #[test]
-    fn run_main_for_exercise() {
-        main();
+    fn test_counter_final_value() {
+        let  counter = 0;
+        assert_eq!(counter, 3, "Counter should be 3, but got {}", counter);
+
     }
 }

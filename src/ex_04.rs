@@ -10,7 +10,7 @@
 // }
 
 // fn main() {
-//     let mut counter = Counter { count: 0 };
+//     let counter = Counter { count: 0 };
 //     counter.increment(); 
 //     println!("Counter: {}", counter.count);
 // }
@@ -24,6 +24,6 @@
 //     fn test_counter_count() {
 //         let mut counter = Counter { count: 0 };
 //         assert_eq!(counter.increment(), 1);
-//         assert_eq!(counter.increment(), 1);
+//         assert_eq!(counter.increment(), 2);
 //     }
 // } 
